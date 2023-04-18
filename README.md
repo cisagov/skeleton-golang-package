@@ -1,9 +1,9 @@
-# test #
+# skeleton-golang-package #
 
-[![GitHub Build Status](https://github.com/cisagov/test/workflows/build/badge.svg)](https://github.com/cisagov/test/actions)
+[![GitHub Build Status](https://github.com/cisagov/skeleton-golang-package/workflows/build/badge.svg)](https://github.com/cisagov/skeleton-golang-package/actions)
 
 This is a generic skeleton project that can be used to quickly get a
-new [cisagov](https://github.com/cisagov) GitHub project started.
+new [cisagov](https://github.com/cisagov) Go project started.
 This skeleton project contains [licensing information](LICENSE), as
 well as [pre-commit hooks](https://pre-commit.com) and
 [GitHub Actions](https://github.com/features/actions) configurations
