@@ -69,7 +69,7 @@ go test -v test/example_test.go
 ```
 
 This will run tests for the `example` package as defined in
-`./skeleton-golang-package/src/example/test/example_test.go`
+[`./skeleton-golang-package/src/example/test/example_test.go`](example_test.go)
 
 ## New Repositories from a Skeleton ##
 
