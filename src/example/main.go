@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	// Set up a logger with a timestamp format of "2006-01-02 15:04:05"
+	// Set up a logger with a timestamp format of "YYYY-MM-DD HH:mm:ss"
 	logger := log.New(os.Stdout, "", log.LstdFlags)
 
 	logger.Printf("Running program entrypoint")
