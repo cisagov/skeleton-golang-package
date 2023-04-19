@@ -30,7 +30,7 @@ You should see the contents of the main package as definied in `main.go` as expe
 ### Nix ###
 
 If you have [Nix](https://nixos.org/download.html) installed you can use
-the available flake (`flake.nix`) within the root of the project to build
+the available [flake.nix](flake.nix) within the root of the project to build
 the `example` package:
 
 ```console
