@@ -1,3 +1,8 @@
+/*
+Go has a testing package from the stdlib. But here
+we are also using Testify - a third-party package to
+provide more options. This may change in the future.
+*/
 package example_test
 
 import (
@@ -23,7 +28,7 @@ func TestHello(t *testing.T) {
 func TestHelloFancy(t *testing.T) {
 	// Set up test cases
 	testCases := []struct {
-		// Define additional cases here
+		// Define additional test cases here
 		output string
 	}{
 		{output: "ℋℯ𝓁𝓁ℴ, 𝒲ℴ𝓇𝓁𝒹!"},
@@ -31,12 +36,18 @@ func TestHelloFancy(t *testing.T) {
 
 	// Run test cases
 	for _, tc := range testCases {
+		// Define the expected result
 		result := pkg.HelloFancy()
+
+		// Assert equality
 		assert.Contains(t, tc.output, result, "Output: %d, Expected: %d, Got: %d", tc.output, result)
 	}
 }
 
 func TestAddNumbers(t *testing.T) {
+	// Define the expected result
 	result := pkg.AddNumbers(5, 6)
+
+	// Assert equality
 	assert.Equal(t, 11, result, "Expected 5 + 6 to equal 11")
 }
