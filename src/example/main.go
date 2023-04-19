@@ -1,4 +1,4 @@
-package main
+package main // The package main tells the Go compiler that the package should compile as an executable program and not a shared library
 
 // example is an example Golang package
 import (
