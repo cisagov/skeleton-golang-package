@@ -23,7 +23,7 @@ func TestHello(t *testing.T) {
 func TestHelloFancy(t *testing.T) {
 	// Set up test cases
 	testCases := []struct {
-		// define additional cases here
+		// Define additional cases here
 		output string
 	}{
 		{output: "ℋℯ𝓁𝓁ℴ, 𝒲ℴ𝓇𝓁𝒹!"},
