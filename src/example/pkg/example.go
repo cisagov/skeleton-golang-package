@@ -11,7 +11,7 @@ func Hello(name string) string {
 	return fmt.Sprintf("Hello, %s!", name)
 }
 
-// HelloFancy returns a message using unixstyle - a third-party package
+// HelloFancy returns a message using unistyle - a third-party package
 func HelloFancy() string {
 	return fmt.Sprintf(unistyle.Cursive("Hello, World!")) // using a function from the third-party module
 }
