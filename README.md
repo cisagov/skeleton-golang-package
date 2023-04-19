@@ -52,7 +52,7 @@ directory to run the program:
 
 Alternatively, if you want to execute an interactive build environment
 with all available dependencies for this project you can run the below
- command in the project root:
+command in the project root:
 
 ```console
 cd ./skeleton-golang-package
