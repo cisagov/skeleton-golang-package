@@ -9,9 +9,6 @@ well as [pre-commit hooks](https://pre-commit.com) and
 [GitHub Actions](https://github.com/features/actions) configurations
 appropriate for the major languages that we use.
 
-In many cases you will instead want to use one of the more specific
-skeleton projects derived from this one.
-
 ## Installation ##
 
 To install the example package, use `go build`:
