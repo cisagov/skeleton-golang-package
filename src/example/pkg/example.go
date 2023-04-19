@@ -3,7 +3,7 @@ package pkg
 import (
 	"fmt"
 
-	"github.com/danielgtaylor/unistyle" // this is a third-party package
+	"github.com/danielgtaylor/unistyle" // This is a third-party package
 )
 
 // Hello returns a greeting message
