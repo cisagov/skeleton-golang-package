@@ -45,7 +45,7 @@ Not only will this provide you with Go from within the project but an interactiv
 development environment. The development environment can be started from within the
 root of the project by running the `nix develop` command.
 
-The `flake.nix` file within the root of this project lists the dependencies
+The [flake.nix](flake.nix) file within the root of this project lists the dependencies
 this project needs as well as the location of the package to build. After the
  installation of Nix, you can build the package by simply running: `nix build`
 
