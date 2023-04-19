@@ -71,7 +71,7 @@ This will run tests for the `example` package as defined in
 
 ## Docs ##
 
-This project makes use of godoc if you would like to view
+This project makes use of `godoc` if you would like to view
 its documentation in one location. Run the below command to
 access in your browser:
 
