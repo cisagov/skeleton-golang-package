@@ -25,7 +25,7 @@ This will produce an executable `example` within the current directory.
 
 Execute the `./example` binary to run the program.
 
-You should see the contents of the main package as definied in `main.go` as expected.
+You should see the contents of the main package as defined in [main.go](src/example/main.go)
 
 ### Nix ###
 
@@ -60,7 +60,7 @@ nix develop
 
 ## Testing ##
 
-You can execute tests for the  `example` package by running the below
+You can execute tests for the `example` package by running the below
 command from within the `./skeleton-golang-package/src/example` directory:
 
 ```console
