@@ -69,6 +69,16 @@ go test -v test/example_test.go
 This will run tests for the `example` package as defined in
 [`example_test.go`](src/example/test/example_test.go)
 
+## Docs ##
+
+This project makes use of godoc if you would like to view
+its documentation in one location. Run the below command to
+access in your browser:
+
+```console
+godoc -http=:6060
+```
+
 ## New Repositories from a Skeleton ##
 
 Please see our [Project Setup guide](https://github.com/cisagov/development-guide/tree/develop/project_setup)
