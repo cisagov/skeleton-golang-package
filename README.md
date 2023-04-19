@@ -31,16 +31,17 @@ You should see the contents of the main package as defined in [main.go](src/exam
 
 If you have [Nix](https://nixos.org/download.html) installed you can use
 the available [flake.nix](flake.nix) within the root of the project to build
-the `example` package:
+and run the `example` package:
 
 ```console
 cd ./skeleton-golang-package
-nix build
+nix run
 ```
 
-After the build has completed you will see a `result` directory within the
-root of the project. In that directory contains a `bin` directory where the
-executable `example` can be found: `result/bin/example`
+After the build has completed the program will automatically execute. It will
+also have created a `result` directory within the root of the project. In that
+ directory contains a `bin` directory where the executable `example` can
+  be found: `result/bin/example`
 
 You can execute the binary from the root of the `skeleton-golang-package`
 directory to run the program:
