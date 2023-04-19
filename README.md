@@ -39,7 +39,7 @@ nix run
 ```
 
 After the build has completed the program will automatically execute. It will
-also have created a `result` directory within the root of the project. In that
+also have created a `result` directory within the root of the project. That
 directory contains a `bin` directory where the executable `example` can
 be found: `result/bin/example`
 
