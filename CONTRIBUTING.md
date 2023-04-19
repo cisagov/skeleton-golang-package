@@ -47,7 +47,7 @@ root of the project by running the `nix develop` command.
 
 The [flake.nix](flake.nix) file within the root of this project lists the dependencies
 this project needs as well as the location of the package to build. After the
- installation of Nix, you can build the package by simply running: `nix build`
+installation of Nix, you can build the package by simply running: `nix build`
 
 This will use the Go version specified in the project and if you have a previously
 installed version of Go it will be ignored and untouched.
@@ -56,7 +56,7 @@ If you would rather not install Nix you can install Go via
 [brew](https://brew.sh/) by running `brew install golang` You
 also have the option of simply downloading the package from the
 [Go website](https://go.dev/doc/install) and following the detailed
- instructions to add it to your PATH.
+instructions to add it to your PATH.
 
 ### Setting up pre-commit ###
 
