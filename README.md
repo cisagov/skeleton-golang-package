@@ -48,7 +48,7 @@ directory to run the program:
 ```
 
 Alternatively, if you want to execute an interactive build environment
-with all available dependencies for this project you can run the below
+with all available dependencies for this project you can run this
 command in the project root:
 
 ```console
