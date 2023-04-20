@@ -71,9 +71,9 @@ This will run tests for the `example` package as defined in
 
 ## Documentation ##
 
-This project makes use of `godoc` if you would like to view
-its documentation in one location. Run the below command to
-access in your browser:
+This project makes use of `godoc`. If you would like to view
+its documentation in one location, simply run the command below and
+point your browser to `http://localhost:6060`:
 
 ```console
 godoc -http=:6060
