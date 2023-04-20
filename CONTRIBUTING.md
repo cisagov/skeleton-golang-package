@@ -41,7 +41,7 @@ commit message.  This speeds up your development cycle considerably.
 ## Installing Go ##
 
 The quickest way to get started is to install [Nix](https://nixos.org/download.html).
-Not only will this provide you with Go from within the project but an interactive
+This will provide you with a project-specific installation of Go, as well as an interactive
 development environment. The development environment can be started from within the
 root of the project by running the `nix develop` command.
 
