@@ -2,7 +2,7 @@
 This is the main package for our program. It contains
 a main function which shows that the file is executable.
 main() is the program's entry point. It is not called
-and no value is passed as an rgument or returned from
+and no value is passed as an argument or returned from
 the function.
 
 Consider this a template on where to start when writing
