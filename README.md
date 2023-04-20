@@ -27,8 +27,8 @@ You should see the contents of the main package as defined in [main.go](src/exam
 ### Nix ###
 
 If you have [Nix](https://nixos.org/download.html) installed you can use
-the available [flake.nix](flake.nix) within the root of the project to build
-and run the `example` package:
+the [flake.nix](flake.nix) configuration file located at the root of the
+project to build and run the `example` package:
 
 ```console
 cd ./skeleton-golang-package
