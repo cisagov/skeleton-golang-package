@@ -40,8 +40,7 @@ will also have created a `result` directory within the root of the project.
 This directory contains a `bin` subdirectory where the executable `example` can
 be found: `result/bin/example`
 
-You can execute the binary from the root of the `skeleton-golang-package`
-directory to run the program:
+To run the program simply execute the binary from the root of the `skeleton-golang-package`:
 
 ```console
 ./result/bin/example
