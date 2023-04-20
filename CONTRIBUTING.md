@@ -49,7 +49,7 @@ The [flake.nix](flake.nix) file within the root of this project lists the depend
 this project needs as well as the location of the package to build. After the
 installation of Nix, you can build the package by simply running: `nix build`
 
-This will use the Go version specified in the project and if you have a previously
+Nix will use the Go version specified in the project, and if you have a previously
 installed version of Go it will be ignored and untouched.
 
 If you would rather not install Nix you can install Go via
