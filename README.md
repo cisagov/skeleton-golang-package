@@ -57,7 +57,7 @@ nix develop
 
 ## Testing ##
 
-You can execute tests for the `example` package by running the below
+You can execute tests for the `example` package by running the following
 command from within the `./skeleton-golang-package/src/example` directory:
 
 ```console
