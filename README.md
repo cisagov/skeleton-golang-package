@@ -66,8 +66,8 @@ error: hash mismatch in fixed-output derivation '/nix/store/11a71sp1wynjgxinx6yb
 error: 1 dependencies of derivation '/nix/store/nm6xhgfawf67sy89rl9azdzvnjc5r7cr-example-20230424.drv' failed to build
 ```
 
-You would then copy the `got` hash and replace it with the current `vendorSha256`
-within `flake.nix`
+You would then copy the `got` hash and use it to replace the previous
+ `vendorSha256` value within `flake.nix`.
 
 If `flake.nix` changes or is modified you will also need to update the
 `flake.lock` file. You can do this by running: `nix flake update` It is
