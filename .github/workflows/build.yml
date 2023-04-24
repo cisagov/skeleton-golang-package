@@ -101,3 +101,45 @@ jobs:
       - name: Setup tmate debug session
         uses: mxschmitt/action-tmate@v3
         if: env.RUN_TMATE
+  test:
+    name: test source - py${{ matrix.go-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+        go-version:
+          - "1.20"
+        include:
+          - os: ubuntu-20.04
+            go-version: "1.20"
+    steps:
+      - uses: actions/checkout@v3
+      - id: setup-go
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go-version }}
+      - uses: actions/cache@v3
+        env:
+          GOPROXY: "https://proxy.golang.org"
+      - name: "Create env file"
+        run: |
+          touch .env
+            echo PACKAGE_LOCATION="$(find ./ -name 'test')/../" >> .env
+            cat .env
+      - name: Generate Mocks and Run Tests
+        working-directory: ${{ env.PACKAGE_LOCATION }}
+        run: |
+          export GOPATH="$HOME/go/"
+          export PATH=$PATH:$GOPATH/bin
+          go install github.com/golang/mock/mockgen@v1.6.0
+          go install github.com/jstemmer/go-junit-report@latest
+          go generate ./...
+          go test -v ./... | go-junit-report -set-exit-code > report.xml
+      - name: Test Summary
+        uses: test-summary/action@v1
+        with:
+          paths: |
+            ${{ env.PACKAGE_LOCATION }}/report.xml
+        if: always()
