@@ -85,7 +85,7 @@ go test -v test/example_test.go
 ```
 
 This will run tests for the `example` package as defined in
-[`example_test.go`](src/example/test/example_test.go)
+[`example_test.go`](src/example/test/example_test.go).
 
 ## Documentation ##
 
