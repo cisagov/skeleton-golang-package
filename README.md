@@ -89,8 +89,8 @@ This will run tests for the `example` package as defined in
 
 ## Documentation ##
 
-This project makes use of `godoc`. If you would like to view
-its documentation in one location, install `godoc` by running:
+If you would like to view this project's documentation
+using `godoc`, install `godoc` by running:
 
 ```console
 go install golang.org/x/tools/cmd/godoc@latest
