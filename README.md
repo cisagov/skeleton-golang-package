@@ -55,6 +55,25 @@ cd ./skeleton-golang-package
 nix develop
 ```
 
+If you make changes to the project files you will need to update `vendorSha256`
+in `flake.nix`  You can do this by running `nix build` and you should be presented
+with an error similar to:
+
+```console
+error: hash mismatch in fixed-output derivation '/nix/store/11a71sp1wynjgxinx6yb0yhli4q659zi-example-20230424-go-modules.drv':
+         specified: sha256-+aBatR0sHWkykrQr8AMD0P5xoc4VEXtA+egp6PxsKzY=
+            got:    sha256-gqfvjULp2VApWQl7yFVj45meYpcS4XefUtEUy+TtAH4=
+error: 1 dependencies of derivation '/nix/store/nm6xhgfawf67sy89rl9azdzvnjc5r7cr-example-20230424.drv' failed to build
+```
+
+You would then copy the `got` hash and replace it with the current `vendorSha256`
+within `flake.nix`
+
+If `flake.nix` changes or is modified you will also need to update the
+`flake.lock` file. You can do this by running: `nix flake update` It is
+also recommended to then run `nix build` after this operation to ensure
+the build will be successful.
+
 ## Testing ##
 
 You can execute tests for the `example` package by running the following
@@ -71,8 +90,13 @@ This will run tests for the `example` package as defined in
 ## Documentation ##
 
 This project makes use of `godoc`. If you would like to view
-its documentation in one location, simply run the command below and
-point your browser to `http://localhost:6060`:
+its documentation in one location, install `godoc` by running:
+
+```console
+go get golang.org/x/tools/cmd/godoc
+```
+
+Then, run the command below and point your browser to `http://localhost:6060`:
 
 ```console
 godoc -http=:6060
