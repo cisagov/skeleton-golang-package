@@ -93,7 +93,7 @@ This project makes use of `godoc`. If you would like to view
 its documentation in one location, install `godoc` by running:
 
 ```console
-go get golang.org/x/tools/cmd/godoc
+go install golang.org/x/tools/cmd/godoc@latest
 ```
 
 Then, run the command below and point your browser to `http://localhost:6060`:
