@@ -130,7 +130,7 @@ jobs:
           go generate ./
           go test -v ./test/* | go-junit-report -set-exit-code > report.xml
 
-      - name: Test Summary
+      - name: Test summary
         uses: test-summary/action@v1
         with:
           paths: |
