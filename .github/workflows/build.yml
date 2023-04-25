@@ -159,7 +159,7 @@ jobs:
         id: package-location
 
       - name: Generate mocks and run tests
-        working-directory: ${{ steps.packagelocation.outputs.PACKAGE_LOCATION }}
+        working-directory: ${{ steps.package-location.outputs.PACKAGE_LOCATION }}
         run: |
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
@@ -173,5 +173,5 @@ jobs:
         uses: test-summary/action@v1
         with:
           paths: |
-            ${{ steps.packagelocation.outputs.PACKAGE_LOCATION }}/report.xml
+            ${{ steps.package-location.outputs.PACKAGE_LOCATION }}/report.xml
         if: always()
