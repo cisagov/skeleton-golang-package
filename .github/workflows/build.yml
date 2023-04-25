@@ -163,8 +163,8 @@ jobs:
         run: |
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
-          go install github.com/golang/mock/mockgen@v1.6.0
-          go install github.com/jstemmer/go-junit-report@2.0.0
+          go install github.com/golang/mock/mockgen@latest
+          go install github.com/jstemmer/go-junit-report@latest
           export PACKAGE_LOCATION="$(find ./ -name 'test')/../"
           go generate ./
           go test -v ./test/* | go-junit-report -set-exit-code > report.xml
