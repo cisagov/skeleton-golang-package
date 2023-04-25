@@ -99,7 +99,7 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         if: env.RUN_TMATE
   test:
-    name: Run Go Package Tests
+    name: test source
     runs-on: ubuntu-20.04
     steps:
       - name: Download Go
