@@ -114,7 +114,7 @@ jobs:
       - name: Retrieve package location
         run: |
             echo PACKAGE_LOCATION="$(find ./ -name 'test')/../" >> $GITHUB_OUTPUT
-        id: packagelocation
+        id: package-location
 
       - name: Generate mocks and run tests
         working-directory: ${{ steps.packagelocation.outputs.PACKAGE_LOCATION }}
