@@ -158,7 +158,7 @@ jobs:
             echo PACKAGE_LOCATION="$(find ./ -name 'test')/../" >> $GITHUB_OUTPUT
         id: packagelocation
 
-      - name: Generate Mocks and Run Tests
+      - name: Generate mocks and run tests
         working-directory: ${{ steps.packagelocation.outputs.PACKAGE_LOCATION }}
         run: |
           export GOPATH="$HOME/go/"
