@@ -151,5 +151,6 @@ jobs:
         with:
           paths: |
             ${{ steps.package-location.outputs.PACKAGE_LOCATION }}/report.xml
-        if: always()  # If previous steps fail we still want to \
-                      # update build status since it will be affected
+        # If previous steps fail, we still want to always update build status
+        # since it will be affected.
+        if: always()
