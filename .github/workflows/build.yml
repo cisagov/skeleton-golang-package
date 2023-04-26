@@ -141,17 +141,33 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         if: env.RUN_TMATE
   test:
-    name: test source
-    runs-on: ubuntu-20.04
+    name: test source - go${{ matrix.go-version }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+        go-version:
+          - "1.19"
+          - "1.20"
+        include:
+          - os: ubuntu-20.04
+            go-version: "1.20"
     steps:
-      - name: Download Go
+      - uses: actions/checkout@v3
+      - id: setup-go
         uses: actions/setup-go@v4
         with:
-          go-version: '^1.20.2'
-        id: go
-
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+          go-version: ${{ matrix.go-version }}
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-golang-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-golang-
 
       - name: Retrieve package location
         run: |
@@ -174,4 +190,5 @@ jobs:
         with:
           paths: |
             ${{ steps.package-location.outputs.PACKAGE_LOCATION }}/report.xml
-        if: always()
+        if: always()  # If previous steps fail we still want to \
+                      # update build status since it will be affected
