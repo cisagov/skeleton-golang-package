@@ -85,7 +85,7 @@ jobs:
       - name: Install Terraform-docs
         env:
           PACKAGE_URL: github.com/terraform-docs/terraform-docs
-          PACKAGE_VERSION: ${{ steps.setup-env. outputs.terraform-docs-version }}
+          PACKAGE_VERSION: ${{ steps.setup-env.outputs.terraform-docs-version }}
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
       - name: Install dependencies
         run: |
