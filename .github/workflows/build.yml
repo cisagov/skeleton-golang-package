@@ -134,15 +134,22 @@ jobs:
         run: |
             echo PACKAGE_LOCATION="$(find ./ -name 'test')/../" >> $GITHUB_OUTPUT
         id: package-location
+      - name: Install go-junit-report
+        env:
+          PACKAGE_URL: github.com/jstemmer/go-junit-report
+          PACKAGE_VERSION: ${{ steps.setup-env.outputs.go-junit-version }}
+        run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
+      - name: Install go-mock
+        env:
+          PACKAGE_URL: github.com/golang/mock/mockgen
+          PACKAGE_VERSION: ${{ steps.setup-env.outputs.go-mock-version }}
+        run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
 
       - name: Generate mocks and run tests
         working-directory: ${{ steps.package-location.outputs.PACKAGE_LOCATION }}
         run: |
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
-          go install github.com/golang/mock/mockgen@latest
-          go install github.com/jstemmer/go-junit-report@latest
-          export PACKAGE_LOCATION="$(find ./ -name 'test')/../"
           go generate ./
           go test -v ./test/* | go-junit-report -set-exit-code > report.xml
 
@@ -151,6 +158,5 @@ jobs:
         with:
           paths: |
             ${{ steps.package-location.outputs.PACKAGE_LOCATION }}/report.xml
-        # If previous steps fail, we still want to always update build status
-        # since it will be affected.
-        if: always()
+        if: always()  # If previous steps fail we still want to \
+                      # update build status since it will be affected
