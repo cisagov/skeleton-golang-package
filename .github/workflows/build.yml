@@ -157,6 +157,14 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: ${{ matrix.go-version }}
+      - name: Lookup Go cache directory
+        id: go-cache
+        run: |
+          echo "dir=$(go env GOCACHE)" >> $GITHUB_OUTPUT
+      - name: Lookup Go module cache directory
+        id: go-modcache
+        run: |
+          echo "dir=$(go env GOMODCACHE)" >> $GITHUB_OUTPUT
       - uses: actions/cache@v3
         with:
           path: |
