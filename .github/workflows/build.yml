@@ -124,13 +124,17 @@ jobs:
         run: |
           echo "dir=$(go env GOMODCACHE)" >> $GITHUB_OUTPUT
       - uses: actions/cache@v3
+        env:
+          BASE_CACHE_KEY: "${{ github.job }}-${{ runner.os }}-\
+            go${{ steps.setup-go.outputs.go-version }}-"
         with:
           path: |
-            ~/.cache/go-build
-            ~/go/pkg/mod
-          key: ${{ runner.os }}-golang-${{ hashFiles('**/go.sum') }}
+            ${{ steps.go-cache.outputs.dir }}
+            ${{ steps.go-modcache.outputs.dir }}
+          key: "${{ env.BASE_CACHE_KEY }}\
+            ${{ hashFiles('**/go.sum') }}"
           restore-keys: |
-            ${{ runner.os }}-golang-
+            ${{ env.BASE_CACHE_KEY }}
 
       - name: Retrieve package location
         run: |
