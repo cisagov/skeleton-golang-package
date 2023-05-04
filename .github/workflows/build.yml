@@ -178,10 +178,6 @@ jobs:
           restore-keys: |
             ${{ env.BASE_CACHE_KEY }}
 
-      - name: Retrieve package location
-        run: |
-            echo PACKAGE_LOCATION="$(find ./ -name 'test')/../" >> $GITHUB_OUTPUT
-        id: package-location
       - name: Install go-junit-report
         env:
           PACKAGE_URL: github.com/jstemmer/go-junit-report
@@ -194,12 +190,12 @@ jobs:
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
 
       - name: Generate mocks and run tests
-        working-directory: ${{ steps.package-location.outputs.PACKAGE_LOCATION }}
+        working-directory: ./test
         run: |
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
           go generate ./
-          go test -v ./test/* | go-junit-report -set-exit-code > report.xml
+          go test -v * | go-junit-report -set-exit-code > report.xml
 
       - name: Test summary
         uses: test-summary/action@v1
