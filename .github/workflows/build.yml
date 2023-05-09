@@ -135,7 +135,6 @@ jobs:
             ${{ hashFiles('**/go.sum') }}"
           restore-keys: |
             ${{ env.BASE_CACHE_KEY }}
-
       - name: Install go-junit-report
         env:
           PACKAGE_URL: github.com/jstemmer/go-junit-report
@@ -146,7 +145,6 @@ jobs:
           PACKAGE_URL: github.com/golang/mock/mockgen
           PACKAGE_VERSION: ${{ steps.setup-env.outputs.gomock-version }}
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
-
       - name: Generate mocks and run tests
         working-directory: ./test
         run: |
@@ -154,7 +152,6 @@ jobs:
           export PATH=$PATH:$GOPATH/bin
           go generate ./
           go test -v * | go-junit-report -set-exit-code > report.xml
-
       - name: Test summary
         uses: test-summary/action@v1
         with:
