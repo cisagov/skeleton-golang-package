@@ -183,10 +183,10 @@ jobs:
           PACKAGE_URL: github.com/jstemmer/go-junit-report
           PACKAGE_VERSION: ${{ steps.setup-env.outputs.go-junit-version }}
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
-      - name: Install go-mock
+      - name: Install GoMock
         env:
           PACKAGE_URL: github.com/golang/mock/mockgen
-          PACKAGE_VERSION: ${{ steps.setup-env.outputs.go-mock-version }}
+          PACKAGE_VERSION: ${{ steps.setup-env.outputs.gomock-version }}
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
 
       - name: Generate mocks and run tests
