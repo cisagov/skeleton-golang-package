@@ -163,4 +163,4 @@ jobs:
         if: always()
       - name: Setup tmate debug session
         uses: mxschmitt/action-tmate@v3
-        if: env.RUN_TMATE
+        if: ${{ always() && env.RUN_TMATE == 'true' }}
