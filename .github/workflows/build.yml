@@ -139,7 +139,7 @@ jobs:
             ${{ env.BASE_CACHE_KEY }}
       - name: Install go-junit-report
         env:
-          PACKAGE_URL: github.com/jstemmer/go-junit-report
+          PACKAGE_URL: github.com/jstemmer/go-junit-report/v2
           PACKAGE_VERSION: ${{ steps.setup-env.outputs.go-junit-report-version }}
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
       - name: Install GoMock
