@@ -158,8 +158,7 @@ jobs:
       - name: Test summary
         uses: test-summary/action@v1
         with:
-          paths: |
-            ${{ steps.package-location.outputs.PACKAGE_LOCATION }}/report.xml
+          paths: report.xml
         # If previous steps fail, we still want to always update build status
         # since it will be affected.
         if: always()
