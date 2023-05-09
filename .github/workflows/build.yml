@@ -161,3 +161,6 @@ jobs:
         # If previous steps fail, we still want to always update build status
         # since it will be affected.
         if: always()
+      - name: Setup tmate debug session
+        uses: mxschmitt/action-tmate@v3
+        if: env.RUN_TMATE
