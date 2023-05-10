@@ -78,7 +78,7 @@ You can execute tests for the `example` package by running the following
 command from within the `src/example` directory:
 
 ```console
-cd ./skeleton-golang-package/src/example
+cd src/example
 go test -v test/example_test.go
 ```
 
