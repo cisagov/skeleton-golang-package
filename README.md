@@ -7,7 +7,7 @@ new [cisagov](https://github.com/cisagov) Go project started.
 This skeleton project contains [licensing information](LICENSE), as
 well as [pre-commit hooks](https://pre-commit.com) and
 [GitHub Actions](https://github.com/features/actions) configurations
-appropriate for the major languages that we use.
+appropriate for a Go package.
 
 ## Installation ##
 
