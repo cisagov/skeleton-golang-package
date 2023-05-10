@@ -14,7 +14,7 @@ appropriate for the major languages that we use.
 To install the example package, use `go build`:
 
 ```console
-cd ./skeleton-golang-package/src/example
+cd src/example
 go build
 ```
 
