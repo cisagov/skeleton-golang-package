@@ -39,7 +39,7 @@ will also have created a `result` directory within the root of the project.
 This directory contains a `bin` subdirectory where the executable `example` can
 be found: `result/bin/example`
 
-To run the program simply execute the binary from the root of the `skeleton-golang-package`:
+To run the program simply execute the binary from the project root:
 
 ```console
 ./result/bin/example
