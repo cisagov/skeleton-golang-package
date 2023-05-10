@@ -31,7 +31,6 @@ the [flake.nix](flake.nix) configuration file located at the root of the
 project to build and run the `example` package:
 
 ```console
-cd ./skeleton-golang-package
 nix run
 ```
 
