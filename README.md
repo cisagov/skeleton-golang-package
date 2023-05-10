@@ -51,7 +51,6 @@ with all available dependencies for this project you can run this
 command in the project root:
 
 ```console
-cd ./skeleton-golang-package
 nix develop
 ```
 
