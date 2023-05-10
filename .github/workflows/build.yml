@@ -190,12 +190,11 @@ jobs:
           PACKAGE_VERSION: ${{ steps.setup-env.outputs.gomock-version }}
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
       - name: Generate mocks and run tests
-        working-directory: ./test
         run: |
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
           go generate ./
-          go test -v * | go-junit-report -set-exit-code > report.xml
+          go test -v ./test/* | go-junit-report -set-exit-code > report.xml
       - name: Test summary
         uses: test-summary/action@v1
         with:
