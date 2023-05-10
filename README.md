@@ -42,7 +42,7 @@ be found: `result/bin/example`
 To run the program simply execute the binary from the project root:
 
 ```console
-./result/bin/example
+result/bin/example
 ```
 
 Alternatively, if you want to execute an interactive build environment
