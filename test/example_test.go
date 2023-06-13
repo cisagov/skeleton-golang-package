@@ -6,7 +6,7 @@ provide more options. This may change in the future.
 package example_test
 
 import (
-	"example/pkg"
+	"example/src"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
