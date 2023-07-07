@@ -38,6 +38,13 @@ regular contributor, then you will want to set up
 do that, the CI checks will run locally before you even write your
 commit message.  This speeds up your development cycle considerably.
 
+## Installing Go ##
+
+To get started you can install Go via [brew](https://brew.sh/) by running
+`brew install golang` You also have the option of simply downloading the
+package from the [Go website](https://go.dev/doc/install) and following the
+detailed instructions to add it to your PATH.
+
 ### Setting up pre-commit ###
 
 There are a few ways to do this, but we prefer to use
