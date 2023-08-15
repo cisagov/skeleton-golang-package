@@ -17,7 +17,7 @@ func Hello(name string) string {
 
 // HelloFancy returns a message using unistyle - a third-party package
 func HelloFancy() string {
-	return fmt.Sprintf(unistyle.Cursive("Hello, World!")) // Use a function from the third-party module
+	return unistyle.Cursive("Hello, World!") // Use a function from the third-party module
 }
 
 // AddNumbers adds two numbers together and returns the result
