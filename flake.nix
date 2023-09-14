@@ -24,8 +24,7 @@
       # Nixpkgs instantiated for supported system types.
       nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
 
-    in
-    {
+    in {
 
       # Provide some binary packages for selected system types.
       packages = forAllSystems (system:
@@ -49,7 +48,7 @@
             #vendorSha256 = pkgs.lib.fakeSha256;
 
             vendorSha256 =
-              "sha256-gqfvjULp2VApWQl7yFVj45meYpcS4XefUtEUy+TtAH4=";
+              "sha256-k1V3RXEtJn06UJ/k7XjiM/1wdm4afTI4zSbAEYc2ggk=";
           };
         });
 
