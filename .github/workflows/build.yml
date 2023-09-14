@@ -203,7 +203,7 @@ jobs:
           go generate ./
           go test -v ./test/* | go-junit-report -set-exit-code > report.xml
       - name: Test summary
-        uses: test-summary/action@v1
+        uses: test-summary/action@v2
         with:
           paths: report.xml
         # If previous steps fail, we still want to always update build status
