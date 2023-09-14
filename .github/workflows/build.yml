@@ -142,6 +142,8 @@ jobs:
         if: env.RUN_TMATE
   test:
     name: test source - go${{ matrix.go-version }}
+    needs:
+      - diagnostics
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -152,6 +154,11 @@ jobs:
           - "1.19"
           - "1.20"
     steps:
+      - id: harden-runner
+        name: Harden the runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
       - id: setup-env
         uses: cisagov/setup-env-github-action@develop
       - uses: actions/checkout@v3
