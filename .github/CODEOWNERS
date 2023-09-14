@@ -8,3 +8,6 @@
 # These folks own any files in the .github directory at the root of
 # the repository and any of its subdirectories.
 /.github/ @dav3r @felddy @jasonodoom @jsf9k @mcdonnnj
+
+# @jasonodoom is our Nix SME, so he should own the flake files
+/flake.* @jasonodoom
