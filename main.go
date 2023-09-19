@@ -28,7 +28,7 @@ package main /* The package main tells the Go compiler that the package should
 
 // example is our example Golang package
 import (
-	"example/src"
+	example "example/src"
 	"fmt"
 	"log"
 	"os"
@@ -40,9 +40,9 @@ func main() {
 
 	logger.Printf("Running program entrypoint")
 
-	fmt.Println(pkg.Hello("Person"))
-	fmt.Println(pkg.HelloFancy())
-	fmt.Println(pkg.AddNumbers(10, 6))
+	fmt.Println(example.Hello("Person"))
+	fmt.Println(example.HelloFancy())
+	fmt.Println(example.AddNumbers(10, 6))
 
 	logger.Printf("Program has ended")
 }
