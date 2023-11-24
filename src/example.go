@@ -2,7 +2,7 @@
 // a third-party package dependency called unistyle which provides
 // Unicode text styles for Go.
 
-package pkg
+package example
 
 import (
 	"fmt"
