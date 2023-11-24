@@ -11,8 +11,8 @@
       lastModifiedDate =
         self.lastModifiedDate or self.lastModified or "19700101";
 
-      # Generate a user-friendly version number.
-      version = builtins.substring 0 8 lastModifiedDate;
+      # Define version number.
+      version = "1.0.0";
 
       # System types to support.
       supportedSystems =
@@ -50,6 +50,7 @@
 
             vendorSha256 =
               "sha256-k1V3RXEtJn06UJ/k7XjiM/1wdm4afTI4zSbAEYc2ggk=";
+            ldflags = ["-X main.version=${version}"];  
           };
         });
 
