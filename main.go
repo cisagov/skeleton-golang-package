@@ -34,7 +34,11 @@ import (
 	"os"
 )
 
+var version string 
+
 func main() {
+	fmt.Println("version=", version)
+
 	// Set up a logger with a timestamp format of "YYYY-MM-DD HH:mm:ss"
 	logger := log.New(os.Stdout, "", log.LstdFlags)
 
