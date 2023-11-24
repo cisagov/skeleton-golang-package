@@ -50,7 +50,7 @@
 
             vendorSha256 =
               "sha256-k1V3RXEtJn06UJ/k7XjiM/1wdm4afTI4zSbAEYc2ggk=";
-            ldflags = ["-X main.version=${version}"];  
+            ldflags = [ "-X main.version=${version}" ];
           };
         });
 
