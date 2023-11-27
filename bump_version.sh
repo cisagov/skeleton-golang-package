@@ -33,9 +33,9 @@ else
       mv $tmp_flake $FLAKE_FILE
       # Run flake update to update the flake.lock file
       nix flake update
-      # git add $FLAKE_FILE $FLAKE_LOCK_FILE
-      # git commit -m"Bump version from $old_version to $new_version"
-      # git push
+      git add $FLAKE_FILE $FLAKE_LOCK_FILE
+      git commit -m"Bump version from $old_version to $new_version"
+      git push
       ;;
     finalize)
       new_version=$(python -c "import semver; print(semver.finalize_version('$old_version'))")
@@ -45,9 +45,9 @@ else
       tmp_flake=/tmp/flake.tmp
       sed "s/$old_version_regex/$new_version/" $FLAKE_FILE > $tmp_flake
       mv $tmp_flake $FLAKE_FILE
-      # git add $FLAKE_FILE
-      # git commit -m"Finalize version from $old_version to $new_version"
-      # git push
+      git add $FLAKE_FILE
+      git commit -m"Finalize version from $old_version to $new_version"
+      git push
       ;;
     show)
       echo "$old_version"
