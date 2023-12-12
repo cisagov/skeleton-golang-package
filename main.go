@@ -28,7 +28,7 @@ package main /* The package main tells the Go compiler that the package should
 
 // example is our example Golang package
 import (
-	example "example/src"
+	example "github.com/cisagov/skeleton-golang-package/src"
 	"fmt"
 	"log"
 	"os"
