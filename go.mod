@@ -1,4 +1,4 @@
-module example
+module github.com/cisagov/skeleton-golang-package
 
 go 1.20
 
