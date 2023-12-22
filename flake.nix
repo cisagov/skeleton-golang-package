@@ -12,7 +12,7 @@
         self.lastModifiedDate or self.lastModified or "19700101";
 
       # Define version number.
-      version = "1.0.0";
+      version = "0.1.0";
 
       # System types to support.
       supportedSystems =
