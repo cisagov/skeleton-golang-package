@@ -34,7 +34,7 @@ import (
 	"os"
 )
 
-var version string 
+var version string
 
 func main() {
 	fmt.Println("version=",version)
