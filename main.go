@@ -17,7 +17,7 @@ to call its functions.
 
 Next, a logger is created to begin logging before and after we
 begin printing from our example package. It's important to note
-that the current version of the package is also printed. 
+that the current version of the package is also printed.
 
 Considering the `example.go` package only returns and does not
 print, we make use of Go's `fmt`` package to print the
