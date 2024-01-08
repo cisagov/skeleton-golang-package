@@ -35,7 +35,8 @@ import (
 	example "github.com/cisagov/skeleton-golang-package/src"
 )
 
-var version string
+// Value matches the default from runtime/debug
+var version = "(devel)"
 
 func main() {
 	fmt.Println("version=",version)
