@@ -44,11 +44,11 @@ func main() {
 	// Set up a logger with a timestamp format of "YYYY-MM-DD HH:mm:ss"
 	logger := log.New(os.Stdout, "", log.LstdFlags)
 
-	logger.Printf("Running program entrypoint")
+	logger.Print("Running program entrypoint")
 
 	fmt.Println(example.Hello("Person"))
 	fmt.Println(example.HelloFancy())
 	fmt.Println(example.AddNumbers(10, 6))
 
-	logger.Printf("Program has ended")
+	logger.Print("Program has ended")
 }
