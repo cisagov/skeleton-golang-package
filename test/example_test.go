@@ -6,9 +6,11 @@ provide more options. This may change in the future.
 package example_test
 
 import (
-	 example "github.com/cisagov/skeleton-golang-package/src"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+
+	example "github.com/cisagov/skeleton-golang-package/src"
 )
 
 func TestHello(t *testing.T) {
