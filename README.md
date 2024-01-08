@@ -18,9 +18,9 @@ cd src/example
 go build
 ```
 
-This will produce an executable `example` within the current directory.
+This will produce an executable `skeleton-golang-package` within the current directory.
 
-Execute the `./example` binary to run the program.
+Execute the `./skeleton-golang-package` binary to run the program.
 
 You should see the contents of the main package as defined in [main.go](src/example/main.go).
 
