@@ -42,7 +42,7 @@ jobs:
         with:
           egress-policy: audit
       - id: setup-env
-        uses: cisagov/setup-env-github-action@develop
+        uses: cisagov/setup-env-github-action@improvement/add_goimports_version
       - uses: actions/checkout@v4
       - id: setup-python
         uses: actions/setup-python@v4
@@ -108,6 +108,11 @@ jobs:
         env:
           PACKAGE_URL: github.com/go-critic/go-critic/cmd/gocritic
           PACKAGE_VERSION: ${{ steps.setup-env.outputs.go-critic-version }}
+        run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
+      - name: Install goimports
+        env:
+          PACKAGE_URL: golang.org/x/tools/cmd/goimports
+          PACKAGE_VERSION: ${{ steps.setup-env.outputs.goimports-version }}
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
       - name: Install gosec
         env:

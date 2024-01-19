@@ -78,6 +78,11 @@ repos:
       - id: go-vet-repo-mod
       # GoSec
       - id: go-sec-repo-mod
+      # goimports
+      - id: go-imports-repo
+        args:
+          # Write changes to source files
+          - -w
 
   # Nix hooks
   - repo: https://github.com/nix-community/nixpkgs-fmt
