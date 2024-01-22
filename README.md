@@ -17,7 +17,8 @@ To install the example package, use `go build`:
 go build --ldflags "-X 'main.version=$(git describe --tag --abbrev=0)'"  -o skeleton-golang-package-$(git describe --tag --abbrev=0)
 ```
 
-This will produce an executable `skeleton-golang-package-v*` with an appended version number within the current directory.
+This will produce an executable `skeleton-golang-package-v*` with an appended
+version number within the current directory.
 
 Execute the `./skeleton-golang-package-v*` binary to run the program.
 
