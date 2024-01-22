@@ -36,8 +36,8 @@ import (
 	example "github.com/cisagov/skeleton-golang-package/src"
 )
 
-// Will store value from build time
-var version string
+// Value matches the default from runtime/debug
+var version = "(devel)"
 
 func main() {
 	fmt.Printf("version=%s\n", version)
