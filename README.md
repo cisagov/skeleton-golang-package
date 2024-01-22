@@ -24,8 +24,6 @@ Execute the `./skeleton-golang-package-v*` binary to run the program.
 
 You should see the contents of the main package as defined in [main.go](src/example/main.go).
 
-To
-
 ### Nix ###
 
 If you have [Nix](https://nixos.org/download.html) installed you can use
