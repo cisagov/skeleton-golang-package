@@ -31,8 +31,8 @@
       packages = forAllSystems (system:
         let pkgs = nixpkgsFor.${system};
         in {
-          example = pkgs.buildGoModule {
-            pname = "example";
+          skeleton-golang-package = pkgs.buildGoModule {
+            pname = "skeleton-golang-package";
             inherit version;
             # In 'nix develop', we don't need a copy of the source tree
             # in the Nix store.
@@ -66,6 +66,6 @@
       # The default package for 'nix build'. This makes sense if the
       # flake provides only one package or there is a clear "main"
       # package.
-      defaultPackage = forAllSystems (system: self.packages.${system}.example);
+      defaultPackage = forAllSystems (system: self.packages.${system}.skeleton-golang-package);
     };
 }
