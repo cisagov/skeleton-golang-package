@@ -200,7 +200,7 @@ jobs:
         run: |
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
-          go build
+          go build -v ./...
       - name: Generate mocks and run tests
         run: |
           go generate ./
