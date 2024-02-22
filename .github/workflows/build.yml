@@ -196,10 +196,13 @@ jobs:
           PACKAGE_URL: github.com/golang/mock/mockgen
           PACKAGE_VERSION: ${{ steps.setup-env.outputs.gomock-version }}
         run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
-      - name: Generate mocks and run tests
+      - name: Build package
         run: |
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
+          go build
+      - name: Generate mocks and run tests
+        run: |
           go generate ./
           go test -v ./test/* | go-junit-report -set-exit-code > report.xml
       - name: Test summary
