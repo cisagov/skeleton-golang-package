@@ -36,8 +36,9 @@ nix run
 
 After the build has completed the program will automatically execute. The build
 will also have created a `result` directory within the root of the project.
-This directory contains a `bin` subdirectory where the executable `skeleton-golang-package` can
-be found: `result/bin/skeleton-golang-package`
+This directory contains a `bin` subdirectory where the executable 
+`skeleton-golang-package` can be found: 
+`result/bin/skeleton-golang-package`
 
 To run the program simply execute the binary from the project root:
 
