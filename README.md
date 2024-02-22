@@ -22,13 +22,13 @@ version number within the current directory.
 
 Execute the `./skeleton-golang-package-v*` binary to run the program.
 
-You should see the contents of the main package as defined in [main.go](src/example/main.go).
+You should see the contents of the main package as defined in [main.go](main.go).
 
 ### Nix ###
 
 If you have [Nix](https://nixos.org/download.html) installed you can use
 the [flake.nix](flake.nix) configuration file located at the root of the
-project to build and run the `example` package:
+project to build and run the `skeleton-golang-package` package:
 
 ```console
 nix run
@@ -36,13 +36,13 @@ nix run
 
 After the build has completed the program will automatically execute. The build
 will also have created a `result` directory within the root of the project.
-This directory contains a `bin` subdirectory where the executable `example` can
-be found: `result/bin/example`
+This directory contains a `bin` subdirectory where the executable `skeleton-golang-package` can
+be found: `result/bin/skeleton-golang-package`
 
 To run the program simply execute the binary from the project root:
 
 ```console
-result/bin/example
+result/bin/skeleton-golang-package
 ```
 
 Alternatively, if you want to execute an interactive build environment
@@ -58,10 +58,10 @@ in `flake.nix`  You can do this by running `nix build` and you should be present
 with an error similar to:
 
 ```console
-error: hash mismatch in fixed-output derivation '/nix/store/11a71sp1wynjgxinx6yb0yhli4q659zi-example-20230424-go-modules.drv':
+error: hash mismatch in fixed-output derivation '/nix/store/11a71sp1wynjgxinx6yb0yhli4q659zi-skeleton-golang-package-20230424-go-modules.drv':
          specified: sha256-+aBatR0sHWkykrQr8AMD0P5xoc4VEXtA+egp6PxsKzY=
             got:    sha256-gqfvjULp2VApWQl7yFVj45meYpcS4XefUtEUy+TtAH4=
-error: 1 dependencies of derivation '/nix/store/nm6xhgfawf67sy89rl9azdzvnjc5r7cr-example-20230424.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/nm6xhgfawf67sy89rl9azdzvnjc5r7cr-skeleton-golang-package-20230424.drv' failed to build
 ```
 
 You would then copy the `got` hash and use it to replace the previous
@@ -75,15 +75,14 @@ the build will be successful.
 ## Testing ##
 
 You can execute tests for the `example` package by running the following
-command from within the `src/example` directory:
+command from within the project root directory:
 
 ```console
-cd src/example
 go test -v test/example_test.go
 ```
 
 This will run tests for the `example` package as defined in
-[`example_test.go`](src/example/test/example_test.go).
+[`example_test.go`](test/example_test.go).
 
 ## Documentation ##
 
