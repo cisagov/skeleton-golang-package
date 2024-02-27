@@ -141,11 +141,22 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         if: env.RUN_TMATE
   nix:
+    name: Test Nix flake
+    needs:
+      - diagnostics
     runs-on: ubuntu-latest
     steps:
+      - id: harden-runner
+        name: Harden the runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v25
         with:
+          # See here for an explanation as to why it is preferable
+          # to specify a GitHub token here:
+          # https://github.com/cachix/install-nix-action?tab=readme-ov-file#inputs-specify-using-with
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - run: nix build
       - run: nix flake check
@@ -210,7 +221,6 @@ jobs:
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
           go build -v ./...
-
       - name: Generate mocks and run tests
         run: |
           go generate ./
