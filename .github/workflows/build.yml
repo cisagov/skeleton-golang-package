@@ -140,6 +140,15 @@ jobs:
       - name: Setup tmate debug session
         uses: mxschmitt/action-tmate@v3
         if: env.RUN_TMATE
+  nix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v25
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}   
+      - run: nix build
+      - run: nix flake check
   test:
     name: test source - go${{ matrix.go-version }}
     needs:
@@ -201,6 +210,7 @@ jobs:
           export GOPATH="$HOME/go/"
           export PATH=$PATH:$GOPATH/bin
           go build -v ./...
+          
       - name: Generate mocks and run tests
         run: |
           go generate ./
