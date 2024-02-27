@@ -71,7 +71,7 @@ You would then copy the `got` hash and use it to replace the previous
 If `flake.nix` changes or is modified you will also need to update the
 `flake.lock` file. You can do this by running: `nix flake update`. It is
 also recommended to then run `nix build` after this operation to ensure
-the build will be successful.
+that the build is successful.
 
 ## Testing ##
 
