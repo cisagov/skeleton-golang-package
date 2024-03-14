@@ -73,6 +73,45 @@ If `flake.nix` changes or is modified you will also need to update the
 also recommended to then run `nix build` after this operation to ensure
 that the build is successful.
 
+## SBOM ##
+
+A Software Bill of Materials (SBOM) is like a recipe card for software,
+detailing all the ingredients (components, libraries, dependencies)
+used to cook up a digital product. It's a crucial tool for understanding
+what goes into software, helping with things like spotting vulnerabilities,
+ensuring license compliance, and keeping an eye on supply chain security.
+However, SBOM isn't a magic fix for security issues itself—it's more of a
+roadmap that helps teams navigate potential risks. It's not a substitute
+for good coding practices or regular updates, but a helpful companion in
+the journey towards stronger software security.
+
+The SBOM found in this project was generated using [cyclonedx-gomod](https://github.com/CycloneDX/cyclonedx-gomod).
+The exact commands used can be found below.
+
+```bash
+cyclonedx-gomod mod -std -json -output bom.json  ./
+```
+
+Generates an SBOM in json format, includes the aggregate of modules
+required by all packages in the target module. This optionally
+includes modules required by tests and test packages. Build
+constraints are NOT evaluated, allowing for a "whole picture"
+view on the target module's dependencies.
+
+```bash
+cyclonedx-gomod app -std -json -output sbom.json  ./
+```
+
+Generates an SBOM in json format for only the
+modules the target application depends on. Modules required by tests
+or packages that are not imported by the application are not included.
+Build constraints are evaluated, which enables a very detailed view of
+what's really compiled into an application's binary.
+
+This project does not inlude executables but if that changes in the future
+or if the application is modified to include additional dependencies or updates
+the SBOM should be updated to reflect that.
+
 ## Testing ##
 
 You can execute tests for the `example` package by running the following
