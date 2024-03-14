@@ -167,3 +167,95 @@ jobs:
       - name: Setup tmate debug session
         uses: mxschmitt/action-tmate@v3
         if: env.RUN_TMATE
+  nix:
+    name: Test Nix flake
+    needs:
+      - diagnostics
+    runs-on: ubuntu-latest
+    steps:
+      - id: harden-runner
+        name: Harden the runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v25
+        with:
+          # See here for an explanation as to why it is preferable
+          # to specify a GitHub token here:
+          # https://github.com/cachix/install-nix-action?tab=readme-ov-file#inputs-specify-using-with
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: nix build
+      - run: nix flake check
+  test:
+    name: test source - go${{ matrix.go-version }}
+    needs:
+      - diagnostics
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+        go-version:
+          - "1.19"
+          - "1.20"
+    steps:
+      - id: harden-runner
+        name: Harden the runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+      - id: setup-env
+        uses: cisagov/setup-env-github-action@develop
+      - uses: actions/checkout@v4
+      - id: setup-go
+        uses: actions/setup-go@v4
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Lookup Go cache directory
+        id: go-cache
+        run: |
+          echo "dir=$(go env GOCACHE)" >> $GITHUB_OUTPUT
+      - name: Lookup Go module cache directory
+        id: go-modcache
+        run: |
+          echo "dir=$(go env GOMODCACHE)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        env:
+          BASE_CACHE_KEY: "${{ github.job }}-${{ runner.os }}-\
+            go${{ steps.setup-go.outputs.go-version }}-"
+        with:
+          path: |
+            ${{ steps.go-cache.outputs.dir }}
+            ${{ steps.go-modcache.outputs.dir }}
+          key: "${{ env.BASE_CACHE_KEY }}\
+            ${{ hashFiles('**/go.sum') }}"
+          restore-keys: |
+            ${{ env.BASE_CACHE_KEY }}
+      - name: Install go-junit-report
+        env:
+          PACKAGE_URL: github.com/jstemmer/go-junit-report/v2
+          PACKAGE_VERSION: ${{ steps.setup-env.outputs.go-junit-report-version }}
+        run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
+      - name: Install GoMock
+        env:
+          PACKAGE_URL: github.com/golang/mock/mockgen
+          PACKAGE_VERSION: ${{ steps.setup-env.outputs.gomock-version }}
+        run: go install ${PACKAGE_URL}@${PACKAGE_VERSION}
+      - name: Build package
+        run: |
+          export GOPATH="$HOME/go/"
+          export PATH=$PATH:$GOPATH/bin
+          go build -v ./...
+      - name: Generate mocks and run tests
+        run: |
+          go generate ./
+          go test -v ./test/* | go-junit-report -set-exit-code > report.xml
+      - name: Test summary
+        uses: test-summary/action@v2
+        with:
+          paths: report.xml
+        # If previous steps fail, we still want to always update build status
+        # since it will be affected.
+        if: always()

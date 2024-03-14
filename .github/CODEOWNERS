@@ -22,3 +22,6 @@
 /requirements-dev.txt @dav3r @felddy @jasonodoom @jsf9k @mcdonnnj
 /requirements-test.txt @dav3r @felddy @jasonodoom @jsf9k @mcdonnnj
 /setup-env @dav3r @felddy @jasonodoom @jsf9k @mcdonnnj
+
+# @jasonodoom is our Nix SME, so he should own the flake files
+/flake.* @jasonodoom

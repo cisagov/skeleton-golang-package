@@ -1,0 +1,125 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.4.schema.json",
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "bom-ref": "pkg:golang/github.com/danielgtaylor/unistyle@v0.0.0-20190218054314-fff153823f5f?type=module",
+      "evidence": {
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/danielgtaylor/unistyle"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fd1512036487cfdba21af942e2b34572aef4b1432d442496752296c30761d6d1"
+        }
+      ],
+      "name": "github.com/danielgtaylor/unistyle",
+      "purl": "pkg:golang/github.com/danielgtaylor/unistyle@v0.0.0-20190218054314-fff153823f5f?type=module&goos=darwin&goarch=amd64",
+      "scope": "required",
+      "type": "library",
+      "version": "v0.0.0-20190218054314-fff153823f5f"
+    },
+    {
+      "bom-ref": "pkg:golang/std@go1.20.7?type=module",
+      "name": "std",
+      "purl": "pkg:golang/std@go1.20.7?type=module&goos=darwin&goarch=amd64",
+      "scope": "required",
+      "type": "library",
+      "version": "go1.20.7"
+    }
+  ],
+  "dependencies": [
+    {
+      "dependsOn": [
+        "pkg:golang/github.com/danielgtaylor/unistyle@v0.0.0-20190218054314-fff153823f5f?type=module",
+        "pkg:golang/std@go1.20.7?type=module"
+      ],
+      "ref": "pkg:golang/github.com/cisagov/skeleton-golang-package@v0.1.1-0.20231222233425-f2a0334c6dd1?type=module"
+    },
+    {
+      "ref": "pkg:golang/github.com/danielgtaylor/unistyle@v0.0.0-20190218054314-fff153823f5f?type=module"
+    },
+    {
+      "ref": "pkg:golang/std@go1.20.7?type=module"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "pkg:golang/github.com/cisagov/skeleton-golang-package@v0.1.1-0.20231222233425-f2a0334c6dd1?type=module",
+      "evidence": {
+        "licenses": [
+          {
+            "license": {
+              "id": "CC0-1.0"
+            }
+          }
+        ]
+      },
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cisagov/skeleton-golang-package"
+        }
+      ],
+      "name": "github.com/cisagov/skeleton-golang-package",
+      "purl": "pkg:golang/github.com/cisagov/skeleton-golang-package@v0.1.1-0.20231222233425-f2a0334c6dd1?type=module&goos=darwin&goarch=amd64",
+      "type": "application",
+      "version": "v0.1.1-0.20231222233425-f2a0334c6dd1"
+    },
+    "timestamp": "2024-03-04T19:26:53-05:00",
+    "tools": [
+      {
+        "externalReferences": [
+          {
+            "type": "vcs",
+            "url": "https://github.com/CycloneDX/cyclonedx-gomod"
+          },
+          {
+            "type": "website",
+            "url": "https://cyclonedx.org"
+          }
+        ],
+        "hashes": [
+          {
+            "alg": "MD5",
+            "content": "6ecc4c325e035e342435492a0b32fe7a"
+          },
+          {
+            "alg": "SHA-1",
+            "content": "5f09c382e7bc5ba77f6a6dddb3dae6e806ee2674"
+          },
+          {
+            "alg": "SHA-256",
+            "content": "5947c23e537576412247aadae2e3c45b3e04b068bfe062a94859d69978fd9cba"
+          },
+          {
+            "alg": "SHA-384",
+            "content": "a59803579215b8ae11b2077531db862b9d546330638094077fe3cdeb7a22539bd7dc3793ac82dcb8651f683179513478"
+          },
+          {
+            "alg": "SHA-512",
+            "content": "97c8d87427640df0643475393b3c983b727f92b7aa730acb787aa808dc4d1255f19dca072b1af507878385b3237477b89abf4fd7bca4e8b51eaf4b18bde70be0"
+          }
+        ],
+        "name": "cyclonedx-gomod",
+        "vendor": "CycloneDX",
+        "version": "v1.6.0"
+      }
+    ]
+  },
+  "serialNumber": "urn:uuid:374bb993-6fad-4fb4-a6ea-18592fddc688",
+  "specVersion": "1.4",
+  "version": 1
+}

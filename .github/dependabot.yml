@@ -7,18 +7,20 @@
 
 updates:
   - directory: /
-    # ignore:
-    #   # Managed by cisagov/test
-    #   - dependency-name: actions/cache
-    #   - dependency-name: actions/checkout
-    #   - dependency-name: actions/setup-go
-    #   - dependency-name: actions/setup-python
-    #   - dependency-name: crazy-max/ghaction-dump-context
-    #   - dependency-name: crazy-max/ghaction-github-labeler
-    #   - dependency-name: crazy-max/ghaction-github-status
-    #   - dependency-name: hashicorp/setup-terraform
-    #   - dependency-name: mxschmitt/action-tmate
-    #   - dependency-name: step-security/harden-runner
+    ignore:
+      # Managed by cisagov/skeleton-generic
+      - dependency-name: actions/cache
+      - dependency-name: actions/checkout
+      - dependency-name: actions/setup-go
+      - dependency-name: actions/setup-python
+      - dependency-name: crazy-max/ghaction-dump-context
+      - dependency-name: crazy-max/ghaction-github-labeler
+      - dependency-name: crazy-max/ghaction-github-status
+      - dependency-name: hashicorp/setup-terraform
+      - dependency-name: mxschmitt/action-tmate
+      - dependency-name: step-security/harden-runner
+      # # Managed by cisagov/skeleton-golang-package
+      # - dependency-name: test-summary/action
     package-ecosystem: github-actions
     schedule:
       interval: weekly
